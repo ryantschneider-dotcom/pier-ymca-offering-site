@@ -14,6 +14,7 @@ const BRUNSWICK_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/31051966338712389
 const MARSH_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_coastal_georgia_marsh-X6dYofBJpMKPXANMjhUTHH.webp";
 const CONCEPT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_development_concept-QT2yhbA9b2MDhSebaUEamJ.webp";
 const PDF_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/YMCA_144_Scranton_Connector_Disposition_Analysis_PIER_2026_742c9756.pdf";
+const PIER_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/pier_logo_64a1e407.png";
 
 function useIntersectionObserver(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -103,12 +104,8 @@ export default function Home() {
         }`}
       >
         <div className="container flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-1 h-8 bg-[#CB521E]" />
-            <div>
-              <div className="text-white font-bold text-sm tracking-widest uppercase" style={{ fontFamily: "'Lato', sans-serif" }}>PIER Commercial</div>
-              <div className="text-white/60 text-xs tracking-wider">Real Estate</div>
-            </div>
+          <div className="flex items-center">
+            <img src={PIER_LOGO} alt="PIER Commercial Real Estate" className="h-9 w-auto" style={{ filter: "brightness(0) invert(1)" }} />
           </div>
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map(link => (
@@ -128,10 +125,10 @@ export default function Home() {
             href={PDF_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-pier text-xs rounded-none flex items-center gap-2"
+            className="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest text-white px-5 py-2.5 border border-white/40 hover:bg-white/10 transition-all"
+            style={{ fontFamily: "'Lato', sans-serif" }}
           >
-            <Download size={14} />
-            Download OM
+            <Download size={13} /> DOWNLOAD OM
           </a>
         </div>
       </nav>
@@ -157,7 +154,7 @@ export default function Home() {
             <div className="fade-up">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-12 bg-[#CB521E]" />
-                <span className="text-[#CB521E] text-xs tracking-[0.25em] uppercase font-bold">Exclusive Offering | Brunswick, Georgia</span>
+                <span className="text-white text-xs tracking-[0.25em] uppercase font-bold">Exclusive Offering | Brunswick, Georgia</span>
               </div>
             </div>
             <h1
@@ -182,9 +179,9 @@ export default function Home() {
                 { label: "By-Right Units", value: "120–136" },
                 { label: "Frontage", value: "Arterial" },
               ].map(stat => (
-                <div key={stat.label} className="glass-card px-5 py-3 rounded-none">
-                  <div className="text-white/60 text-xs tracking-widest uppercase mb-1">{stat.label}</div>
-                  <div className="text-white font-bold text-base" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem" }}>{stat.value}</div>
+                <div key={stat.label} className="px-5 py-3 rounded-none bg-white">
+                  <div className="text-gray-500 text-xs tracking-widest uppercase mb-1">{stat.label}</div>
+                  <div className="text-[#CB521E] font-bold" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem" }}>{stat.value}</div>
                 </div>
               ))}
             </div>
