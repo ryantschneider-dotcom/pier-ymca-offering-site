@@ -90,6 +90,7 @@ export default function Home() {
     { id: "market", label: "Market" },
     { id: "buyers", label: "Buyer Targets" },
     { id: "map", label: "Location" },
+    { id: "listing-agreement", label: "Listing Agreement" },
     { id: "contact", label: "Contact" },
   ];
 
@@ -988,6 +989,126 @@ export default function Home() {
                 Download PDF
               </a>
             </div>
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ── LISTING AGREEMENT ── */}
+      <section id="listing-agreement" className="py-24 bg-[#F7F5F2]">
+        <div className="container">
+          <SectionReveal>
+            <div className="flex items-center gap-4 mb-3">
+              <div className="w-8 h-px bg-[#CB521E]" />
+              <span className="text-[#CB521E] text-xs tracking-[0.25em] uppercase font-bold">Exclusive Listing Agreement</span>
+            </div>
+            <h2 className="mb-6" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 600, color: "#1a1a1a", lineHeight: 1.1 }}>
+              Proposed Listing Terms
+            </h2>
+            <p className="text-[#4a4a4a] text-base leading-relaxed mb-10 max-w-3xl" style={{ fontFamily: "'Lato', sans-serif" }}>
+              PIER Commercial Real Estate proposes to serve as the sole and exclusive listing broker for the sale of 144 Scranton Connector, Brunswick, Georgia. The following summarizes the key terms of the proposed Exclusive Listing Agreement. A pre-filled draft of the full agreement is available for download below.
+            </p>
+          </SectionReveal>
+
+          {/* Key Terms Table */}
+          <SectionReveal>
+            <div className="grid md:grid-cols-2 gap-0 mb-12 border border-[#e0dbd4] overflow-hidden">
+              {[
+                { term: "Listing Broker", value: "PIER Commercial Real Estate" },
+                { term: "Lead Broker", value: "Ryan T. Schneider, CCIM" },
+                { term: "Broker License", value: "Georgia Broker Office H-64838" },
+                { term: "Agent License", value: "Georgia License #157331" },
+                { term: "Property", value: "144 Scranton Connector, Brunswick, GA 31525" },
+                { term: "Tax Parcel", value: "Glynn County PARID: 03-10768" },
+                { term: "Listing Commission", value: "6.00% of Gross Sales Price" },
+                { term: "Co-Brokerage", value: "Buyer's broker commission per separate agreement" },
+                { term: "Agency", value: "Seller Representation Only (BRRETA)" },
+                { term: "Governing Law", value: "State of Georgia" },
+                { term: "Listing Price", value: "To be determined by Owner" },
+                { term: "Listing Term", value: "To be determined — auto-extends 30 days (max 2x)" },
+                { term: "Protection Period", value: "180 days post-termination" },
+                { term: "Marketing Authority", value: "Signage, broker outreach, digital platforms, site tours" },
+              ].map(({ term, value }, i) => (
+                <div key={i} className={`flex border-b border-[#e0dbd4] ${ i % 2 === 0 ? "border-r border-[#e0dbd4]" : "" }`}>
+                  <div className="w-44 flex-shrink-0 bg-[#1a1a1a] text-white px-4 py-3 text-xs tracking-widest uppercase font-bold" style={{ fontFamily: "'Lato', sans-serif" }}>{term}</div>
+                  <div className="flex-1 bg-white px-4 py-3 text-sm text-[#2c2c2c]" style={{ fontFamily: "'Lato', sans-serif" }}>{value}</div>
+                </div>
+              ))}
+            </div>
+          </SectionReveal>
+
+          {/* Commission Breakdown */}
+          <SectionReveal>
+            <div className="bg-[#1a1a1a] text-white p-8 mb-10">
+              <div className="text-xs tracking-widest uppercase font-bold mb-4 text-[#CB521E]" style={{ fontFamily: "'Lato', sans-serif" }}>Commission Structure</div>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="border-l-2 border-[#CB521E] pl-4">
+                  <div className="text-2xl font-bold mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem" }}>6.00%</div>
+                  <div className="text-white/60 text-xs tracking-widest uppercase">Total Commission</div>
+                  <div className="text-white/50 text-xs mt-1">of gross sales price, paid by Seller at closing</div>
+                </div>
+                <div className="border-l-2 border-white/20 pl-4">
+                  <div className="text-2xl font-bold mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem" }}>Shared</div>
+                  <div className="text-white/60 text-xs tracking-widest uppercase">Co-Brokerage</div>
+                  <div className="text-white/50 text-xs mt-1">Buyer's broker compensation per separate written agreement</div>
+                </div>
+                <div className="border-l-2 border-white/20 pl-4">
+                  <div className="text-2xl font-bold mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem" }}>180 Days</div>
+                  <div className="text-white/60 text-xs tracking-widest uppercase">Protection Period</div>
+                  <div className="text-white/50 text-xs mt-1">Post-termination protection for all prospects introduced during the term</div>
+                </div>
+              </div>
+            </div>
+          </SectionReveal>
+
+          {/* Key Provisions */}
+          <SectionReveal>
+            <div className="mb-10">
+              <div className="text-xs tracking-widest uppercase font-bold mb-4 text-[#CB521E]" style={{ fontFamily: "'Lato', sans-serif" }}>Key Agreement Provisions</div>
+              <div className="grid md:grid-cols-2 gap-4">
+                {[
+                  { heading: "Sole Exclusive Right to Sell", body: "PIER is appointed as Owner's sole and exclusive limited agent with the exclusive right to offer the Property for sale or exchange during the term, regardless of the source of the buyer." },
+                  { heading: "Seller Representation (BRRETA)", body: "PIER represents the Seller only. All agency disclosures are made in accordance with Georgia's Brokerage Relationships in Real Estate Transactions Act (O.C.G.A. § 10-6A-1)." },
+                  { heading: "Marketing Authority", body: "Broker is authorized to place signage, conduct broker outreach, list on digital platforms, and show the Property to qualified prospects at reasonable times." },
+                  { heading: "Commission Trigger Events", body: "Commission is earned upon: (A) procuring a ready, willing, and able buyer; (B) Owner entering an enforceable contract; (C) contribution to a business entity; or (D) transfer of an ownership interest in Owner entity." },
+                  { heading: "Owner's Representations", body: "Owner warrants fee simple title, no pending litigation or condemnation, no foreclosure actions, no governmental violation notices, and no known material latent defects beyond those disclosed in writing." },
+                  { heading: "Non-Discrimination", body: "The Property shall be offered, shown, and made available to all persons on a non-discriminatory basis without regard to race, color, religion, sex, handicap, familial status, or national origin." },
+                ].map(({ heading, body }, i) => (
+                  <div key={i} className="bg-white border border-[#e0dbd4] p-5">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#CB521E] mt-1.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-bold text-sm text-[#1a1a1a] mb-1" style={{ fontFamily: "'Lato', sans-serif" }}>{heading}</div>
+                        <div className="text-xs text-[#4a4a4a] leading-relaxed" style={{ fontFamily: "'Lato', sans-serif" }}>{body}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SectionReveal>
+
+          {/* Download CTA */}
+          <SectionReveal>
+            <div className="bg-white border border-[#e0dbd4] p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div>
+                <div className="text-xs tracking-widest uppercase font-bold mb-2 text-[#CB521E]" style={{ fontFamily: "'Lato', sans-serif" }}>Pre-Filled Draft Agreement</div>
+                <div className="text-lg font-semibold text-[#1a1a1a] mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem" }}>Exclusive Listing Agreement — PIER Commercial Real Estate</div>
+                <div className="text-sm text-[#4a4a4a]" style={{ fontFamily: "'Lato', sans-serif" }}>All known broker details pre-filled. Listing price, term dates, and Owner signatures remain for YMCA completion.</div>
+              </div>
+              <a
+                href="https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/YMCA_Listing_Agreement_PIER_Prefilled_9e7eb0a0.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 flex items-center gap-2 bg-[#CB521E] text-white px-6 py-3 text-xs font-bold tracking-widest uppercase hover:bg-[#b44518] transition-colors"
+                style={{ fontFamily: "'Lato', sans-serif" }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Draft Agreement
+              </a>
+            </div>
+            <p className="text-xs text-[#8a8a8a] mt-4" style={{ fontFamily: "'Lato', sans-serif" }}>
+              This draft is provided for review purposes only and does not constitute a binding agreement until fully executed by both parties. PIER Commercial Real Estate recommends that Owner review the agreement with legal counsel prior to execution.
+            </p>
           </SectionReveal>
         </div>
       </section>
