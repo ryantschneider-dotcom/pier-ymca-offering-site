@@ -86,11 +86,9 @@ declare global {
   }
 }
 
-const API_KEY = import.meta.env.VITE_FRONTEND_FORGE_API_KEY;
-const FORGE_BASE_URL =
-  import.meta.env.VITE_FRONTEND_FORGE_API_URL ||
-  "https://forge.butterfly-effect.dev";
-const MAPS_PROXY_URL = `${FORGE_BASE_URL}/v1/maps/proxy`;
+// Google Maps API key — set VITE_GOOGLE_MAPS_API_KEY in your .env or hosting provider env vars
+const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+const MAPS_API_BASE = "https://maps.googleapis.com";
 
 // Singleton promise so the script is only ever injected once per page load
 let _mapsScriptPromise: Promise<void> | null = null;
@@ -117,7 +115,7 @@ function loadMapScript() {
   }
   _mapsScriptPromise = new Promise((resolve, reject) => {
     const script = document.createElement("script");
-    script.src = `${MAPS_PROXY_URL}/maps/api/js?key=${API_KEY}&v=weekly&libraries=marker,places,geocoding,geometry`;
+    script.src = `${MAPS_API_BASE}/maps/api/js?key=${API_KEY}&v=weekly&libraries=marker,places,geocoding,geometry`;
     script.async = true;
     script.crossOrigin = "anonymous";
     script.onload = () => resolve();
