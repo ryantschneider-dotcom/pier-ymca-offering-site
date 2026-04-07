@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import { MapPin, Building2, TrendingUp, FileText, Phone, Mail, Globe, ChevronDown, Download, ExternalLink, Users, Landmark, Home as HomeIcon, Activity } from "lucide-react";
 import { MapView } from "@/components/Map";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_hero_aerial-F8EN7S6jSG4qa3iGWwTKD6.webp";
+const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_sitemap_cropped_54e1829f.jpg";
 const SITE_MAP_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_actual_hero-1_0f2db3f7.jpg";
 const BRUNSWICK_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_brunswick_skyline-N9XUvfWWRMUjvnnYG6nm66.webp";
 const MARSH_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_coastal_georgia_marsh-X6dYofBJpMKPXANMjhUTHH.webp";
