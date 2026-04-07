@@ -10,6 +10,7 @@ import { MapPin, Building2, TrendingUp, FileText, Phone, Mail, Globe, ChevronDow
 import { MapView } from "@/components/Map";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_hero_aerial-F8EN7S6jSG4qa3iGWwTKD6.webp";
+const SITE_MAP_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_actual_hero-1_0f2db3f7.jpg";
 const BRUNSWICK_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_brunswick_skyline-N9XUvfWWRMUjvnnYG6nm66.webp";
 const MARSH_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_coastal_georgia_marsh-X6dYofBJpMKPXANMjhUTHH.webp";
 const CONCEPT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_development_concept-QT2yhbA9b2MDhSebaUEamJ.webp";
@@ -287,6 +288,27 @@ export default function Home() {
               </div>
             </SectionReveal>
           </div>
+          {/* ── SITE MAP PANEL ── */}
+          <SectionReveal className="mt-16">
+            <div className="border border-[#E8E0D0]">
+              <div className="flex items-center justify-between px-6 py-4 bg-[#F8F5F0] border-b border-[#E8E0D0]">
+                <div className="flex items-center gap-3">
+                  <div className="w-1 h-5 bg-[#CB521E]" />
+                  <span className="text-xs tracking-[0.2em] uppercase font-bold text-[#2C2C2C]">Aerial Site Map — ±10 Acre Boundary</span>
+                </div>
+                <span className="text-xs text-[#2C2C2C]/50">Source: Google Maps · PIER Commercial Real Estate</span>
+              </div>
+              <img
+                src={SITE_MAP_IMAGE}
+                alt="Aerial site map of 144 Scranton Connector showing the ±10 acre boundary outlined in orange, Brunswick, GA"
+                className="w-full object-contain"
+                style={{ maxHeight: "520px" }}
+              />
+              <div className="px-6 py-3 bg-[#F8F5F0] border-t border-[#E8E0D0] text-xs text-[#2C2C2C]/60 text-center">
+                Orange boundary delineates the approximate ±10.00-acre subject site at 144 Scranton Connector, Brunswick, GA 31525 (PARID: 03-10768)
+              </div>
+            </div>
+          </SectionReveal>
         </div>
       </section>
 
