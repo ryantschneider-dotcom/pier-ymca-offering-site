@@ -107,7 +107,9 @@ export default function Home() {
       >
         <div className="container flex items-center justify-between">
           <div className="flex items-center">
-            <img src={PIER_LOGO} alt="PIER Commercial Real Estate" className="h-9 w-auto" style={{ filter: "brightness(0) invert(1)" }} />
+            <div className="bg-[#1e1e1e]/80 backdrop-blur-sm px-3 py-1.5 rounded">
+              <img src={PIER_LOGO} alt="PIER Commercial Real Estate" className="h-8 w-auto" style={{ filter: "brightness(0) invert(1)" }} />
+            </div>
           </div>
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map(link => (
