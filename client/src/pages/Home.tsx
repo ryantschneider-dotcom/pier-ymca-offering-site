@@ -15,7 +15,7 @@ const BRUNSWICK_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/31051966338712389
 const MARSH_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_coastal_georgia_marsh-X6dYofBJpMKPXANMjhUTHH.webp";
 const CONCEPT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_development_concept-QT2yhbA9b2MDhSebaUEamJ.webp";
 const PDF_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/YMCA_144_Scranton_Connector_Disposition_Analysis_PIER_2026_742c9756.pdf";
-const PIER_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/pier_logo_64a1e407.png";
+const PIER_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/Brokeragetransp_476781a6.png";
 
 function useIntersectionObserver(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -1236,12 +1236,8 @@ export default function Home() {
         <div className="container">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-1 h-8 bg-[#CB521E]" />
-                <div>
-                  <div className="font-bold text-sm tracking-widest uppercase">PIER Commercial</div>
-                  <div className="text-white/40 text-xs">Real Estate</div>
-                </div>
+              <div className="mb-4">
+                <img src={PIER_LOGO} alt="PIER Commercial Real Estate" className="h-12 w-auto" style={{ filter: "brightness(0) invert(1)" }} />
               </div>
               <p className="text-white/50 text-xs leading-relaxed">
                 Coastal Georgia &amp; Lowcountry SC commercial real estate brokerage and property management.
