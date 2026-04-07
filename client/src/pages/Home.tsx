@@ -108,7 +108,7 @@ export default function Home() {
         <div className="container flex items-center justify-between">
           <div className="flex items-center">
             <div className="bg-[#1e1e1e]/80 backdrop-blur-sm px-3 py-1.5 rounded">
-              <img src={PIER_LOGO} alt="PIER Commercial Real Estate" className="h-8 w-auto" style={{ filter: "brightness(0) invert(1)" }} />
+              <img src={PIER_LOGO} alt="PIER Commercial Real Estate" className="h-8 w-auto" />
             </div>
           </div>
           <div className="hidden md:flex items-center gap-6">
@@ -1239,7 +1239,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
               <div className="mb-4">
-                <img src={PIER_LOGO} alt="PIER Commercial Real Estate" className="h-12 w-auto" style={{ filter: "brightness(0) invert(1)" }} />
+                <img src={PIER_LOGO} alt="PIER Commercial Real Estate" className="h-12 w-auto" />
               </div>
               <p className="text-white/50 text-xs leading-relaxed">
                 Coastal Georgia &amp; Lowcountry SC commercial real estate brokerage and property management.
