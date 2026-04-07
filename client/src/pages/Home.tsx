@@ -3,10 +3,16 @@
  * Warm stone + coastal sage + PIER orange
  * Photography-led, layered information architecture
  * Cormorant Garamond headlines + Lato body
+ *
+ * PUBLIC-FACING BUYER OFFERING VERSION
+ * - No pricing / value ranges (contact broker for pricing)
+ * - No listing agreement section
+ * - No buyer target analysis
+ * - Tone: "Here is the opportunity" — not "here is our strategy"
  */
 
 import { useState, useEffect, useRef } from "react";
-import { MapPin, Building2, TrendingUp, FileText, Phone, Mail, Globe, ChevronDown, Download, ExternalLink, Users, Landmark, Home as HomeIcon, Activity } from "lucide-react";
+import { MapPin, Building2, FileText, Phone, Mail, Globe, ChevronDown, Download, ExternalLink, Activity, Home as HomeIcon } from "lucide-react";
 import { MapView } from "@/components/Map";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_sitemap_cropped_54e1829f.jpg";
@@ -88,9 +94,7 @@ export default function Home() {
     { id: "property", label: "Property" },
     { id: "zoning", label: "Zoning" },
     { id: "market", label: "Market" },
-    { id: "buyers", label: "Buyer Targets" },
     { id: "map", label: "Location" },
-    { id: "listing-agreement", label: "Listing Agreement" },
     { id: "contact", label: "Contact" },
   ];
 
@@ -148,7 +152,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
         </div>
 
-        {/* Coordinate overlay — subtle nautical chart aesthetic */}
         <div className="absolute top-24 right-8 text-white/30 text-xs tracking-widest" style={{ fontFamily: "monospace" }}>
           31.2194° N &nbsp;|&nbsp; 81.4852° W
         </div>
@@ -158,7 +161,7 @@ export default function Home() {
             <div className="fade-up">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-12 bg-[#CB521E]" />
-                <span className="text-white text-xs tracking-[0.25em] uppercase font-bold">Exclusive Offering | Brunswick, Georgia</span>
+                <span className="text-white text-xs tracking-[0.25em] uppercase font-bold">Investment Offering | Brunswick, Georgia</span>
               </div>
             </div>
             <h1
@@ -175,7 +178,6 @@ export default function Home() {
               PARID: 03-10768
             </p>
 
-            {/* Key stats row */}
             <div className="flex flex-wrap gap-6 mb-10 fade-up fade-up-delay-3">
               {[
                 { label: "Site Area", value: "10.0 Acres" },
@@ -235,7 +237,6 @@ export default function Home() {
                   The property's scale, its position along the Scranton Connector arterial corridor — currently the subject of active public infrastructure investment — and the surrounding growth dynamics position this asset to attract a broad and competitive buyer pool.
                 </p>
 
-                {/* Property data table */}
                 <div className="border border-[#E8E0D0] mt-8">
                   {[
                     ["Address", "144 Scranton Connector, Brunswick, GA 31525"],
@@ -283,7 +284,7 @@ export default function Home() {
                 </div>
 
                 <div className="bg-[#4A6741] text-white p-5 mt-6">
-                  <div className="text-xs tracking-widest uppercase font-bold mb-2 text-white/70">Appraiser's Assessment</div>
+                  <div className="text-xs tracking-widest uppercase font-bold mb-2 text-white/70">Broker's Assessment</div>
                   <p className="text-sm leading-relaxed">
                     The primary improvements were constructed in the <strong>1970s–1990s</strong>, making the main building approximately 30–50 years old. For most prospective buyers, the existing improvements represent a <strong>demolition scenario</strong> rather than a renovation scenario. The land value, site size, and location are the primary value drivers.
                   </p>
@@ -291,6 +292,7 @@ export default function Home() {
               </div>
             </SectionReveal>
           </div>
+
           {/* ── SITE MAP PANEL ── */}
           <SectionReveal className="mt-16">
             <div className="border border-[#E8E0D0]">
@@ -315,44 +317,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── VALUE RANGE BANNER ── */}
-      <section className="py-20 section-dark">
+      {/* ── PRICING CALLOUT ── */}
+      <section className="py-16 section-dark">
         <div className="container">
           <SectionReveal>
-            <div className="text-center mb-12">
+            <div className="text-center">
               <div className="flex items-center justify-center gap-4 mb-4">
                 <div className="h-px w-12 bg-[#CB521E]" />
-                <span className="text-xs tracking-[0.2em] uppercase text-[#CB521E] font-bold">Broker's Opinion of Value</span>
+                <span className="text-xs tracking-[0.2em] uppercase text-[#CB521E] font-bold">Pricing</span>
                 <div className="h-px w-12 bg-[#CB521E]" />
               </div>
-              <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 300, color: "white" }}>
-                Estimated Value Range
+              <h2 className="text-white mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 300 }}>
+                Pricing Available Upon Request
               </h2>
+              <p className="text-white/60 max-w-xl mx-auto text-sm leading-relaxed mb-8">
+                This property is offered for sale at a price to be disclosed to qualified buyers. To receive pricing information and the full offering memorandum, please contact the exclusive listing broker.
+              </p>
+              <button
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                className="btn-pier rounded-none inline-flex items-center gap-2 text-sm"
+              >
+                <Mail size={15} />
+                Contact Broker for Pricing
+              </button>
             </div>
-          </SectionReveal>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { scenario: "As-Is / MR Zoning", range: "$2.4M – $3.8M", note: "Multifamily developer, by-right", color: "#CB521E" },
-              { scenario: "Rezoned Commercial", range: "$3.5M – $6.5M", note: "GC / OC rezoning", color: "#4A6741" },
-              { scenario: "Medical / Healthcare", range: "$4.5M – $8.0M", note: "Health system / MOB campus", color: "#C9A84C" },
-              { scenario: "Competitive Bid Process", range: "$4.0M – $7.0M+", note: "Dual-track marketing strategy", color: "#CB521E" },
-            ].map(({ scenario, range, note, color }) => (
-              <SectionReveal key={scenario}>
-                <div className="bg-white/5 border border-white/10 p-6 h-full hover:bg-white/10 transition-colors">
-                  <div className="w-8 h-1 mb-4" style={{ background: color }} />
-                  <div className="text-white/60 text-xs tracking-widest uppercase mb-2">{scenario}</div>
-                  <div className="text-white font-bold text-xl mb-2" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.6rem" }}>{range}</div>
-                  <div className="text-white/50 text-xs">{note}</div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-
-          <SectionReveal>
-            <p className="text-white/40 text-xs text-center mt-8 max-w-2xl mx-auto">
-              Broker's opinion of value only. Not a certified appraisal under USPAP standards. All estimates based on comparable land sales, development economics, and market knowledge as of March 2026.
-            </p>
           </SectionReveal>
         </div>
       </section>
@@ -374,7 +362,6 @@ export default function Home() {
           </SectionReveal>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* By-Right Uses */}
             <SectionReveal>
               <div className="bg-white p-6 h-full border-t-4 border-[#4A6741]">
                 <h3 className="font-bold text-[#4A6741] text-xs tracking-widest uppercase mb-4">Permitted By Right</h3>
@@ -398,7 +385,6 @@ export default function Home() {
               </div>
             </SectionReveal>
 
-            {/* Conditional Uses */}
             <SectionReveal>
               <div className="bg-white p-6 h-full border-t-4 border-[#CB521E]">
                 <h3 className="font-bold text-[#CB521E] text-xs tracking-widest uppercase mb-4">Conditional Uses</h3>
@@ -421,7 +407,6 @@ export default function Home() {
               </div>
             </SectionReveal>
 
-            {/* Development Standards */}
             <SectionReveal>
               <div className="bg-white p-6 h-full border-t-4 border-[#C9A84C]">
                 <h3 className="font-bold text-[#C9A84C] text-xs tracking-widest uppercase mb-4">Development Standards</h3>
@@ -433,12 +418,11 @@ export default function Home() {
                     ["Min Lot (MF)", "8,000 SF"],
                     ["Front Setback (MF)", "30 ft"],
                     ["Side/Rear Setback", "15 ft"],
-                    ["Min Lot Width (MF)", "80 ft"],
-                    ["Townhouse Lot Min", "2,000 SF / unit"],
-                  ].map(([label, value]) => (
-                    <div key={label} className="flex justify-between items-center border-b border-[#E8E0D0] pb-2 last:border-b-0">
-                      <span className="text-xs text-[#2C2C2C]/60">{label}</span>
-                      <span className="text-xs font-bold text-[#2C2C2C]">{value}</span>
+                    ["Min Lot Width", "80 ft"],
+                  ].map(([k, v]) => (
+                    <div key={k} className="flex justify-between border-b border-[#E8E0D0] pb-2 last:border-0">
+                      <span className="text-xs text-[#2C2C2C]/60">{k}</span>
+                      <span className="text-xs font-bold text-[#2C2C2C]">{v}</span>
                     </div>
                   ))}
                 </div>
@@ -446,56 +430,82 @@ export default function Home() {
             </SectionReveal>
           </div>
 
-          {/* Rezoning potential callout */}
-          <SectionReveal>
-            <div className="mt-12 bg-[#2C2C2C] text-white p-8 flex flex-col md:flex-row gap-6 items-start">
-              <div className="shrink-0">
-                <TrendingUp size={36} className="text-[#CB521E]" />
-              </div>
+          {/* Rezoning Opportunity */}
+          <SectionReveal className="mt-12">
+            <div className="bg-[#2C2C2C] text-white p-8 grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="font-bold mb-2" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem" }}>
-                  Rezoning Potential — The Path to Maximum Value
+                <div className="text-[#CB521E] text-xs tracking-widest uppercase font-bold mb-3">Rezoning Upside</div>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.8rem", fontWeight: 400 }} className="mb-4">
+                  Commercial Rezoning Unlocks Premium Value
                 </h3>
-                <p className="text-white/70 text-sm leading-relaxed mb-4">
-                  The property's position on Scranton Connector (a designated arterial) and proximity to commercial nodes creates a compelling case for rezoning to OC (Office Commercial), GC (General Commercial), MED (Medical), or PD (Planned Development). A rezoning can increase the sale price by <strong className="text-[#CB521E]">$1.5M to $3.5M</strong> above the residential-only scenario.
+                <p className="text-white/70 text-sm leading-relaxed">
+                  A rezoning to GC (General Commercial) or OC (Office Commercial) would open the door to medical office, retail, hospitality, or mixed-use development — uses that command significantly higher land values than residential. The site's arterial frontage and proximity to SE Georgia Health System make commercial rezoning a compelling path for the right buyer.
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  {["OC — Office Commercial", "GC — General Commercial", "MED — Medical District", "PD — Planned Development", "HC — Highway Commercial"].map(z => (
-                    <span key={z} className="text-xs px-3 py-1 border border-white/20 text-white/70">{z}</span>
-                  ))}
-                </div>
-                <p className="text-white/50 text-xs mt-4">
-                  Note: Glynn County is currently undergoing a comprehensive Zoning Ordinance rewrite (early 2026), creating a window to advocate for a more flexible designation.
-                </p>
+              </div>
+              <div className="space-y-3">
+                {[
+                  { use: "Medical Office / Health Campus", note: "Arterial access + proximity to SE GA Health System" },
+                  { use: "Hospitality / Extended Stay Hotel", note: "High demand corridor near I-95 and tourism base" },
+                  { use: "Retail / Mixed-Use Center", note: "Glynn Place Mall adjacency creates retail synergy" },
+                  { use: "Government / Institutional Campus", note: "County and state agencies are active buyers" },
+                ].map(({ use, note }) => (
+                  <div key={use} className="flex gap-3 p-3 bg-white/5 border-l-2 border-[#CB521E]">
+                    <div>
+                      <div className="text-sm font-bold text-white">{use}</div>
+                      <div className="text-xs text-white/50 mt-0.5">{note}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </SectionReveal>
         </div>
       </section>
 
-      {/* ── MARKET ANALYSIS ── */}
+      {/* ── DEVELOPMENT CONCEPT ── */}
+      <section className="relative py-0 overflow-hidden" style={{ minHeight: "500px" }}>
+        <img src={CONCEPT_IMAGE} alt="Development concept rendering for 144 Scranton Connector" className="w-full object-cover" style={{ height: "500px" }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        <div className="absolute inset-0 flex items-center container">
+          <SectionReveal className="max-w-xl">
+            <div className="text-[#CB521E] text-xs tracking-widest uppercase font-bold mb-4">Development Potential</div>
+            <h2 className="text-white mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 300 }}>
+              Imagine What's<br /><span style={{ fontWeight: 700 }}>Possible Here</span>
+            </h2>
+            <p className="text-white/70 text-sm leading-relaxed mb-6">
+              A 10-acre site with arterial frontage, full utilities, and by-right density for 120–136 residential units — or the canvas for a medical campus, senior living community, or mixed-use development following rezoning.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["Multifamily Community", "Senior Living", "Medical Campus", "Charter School", "Mixed-Use PD", "Church Campus"].map(use => (
+                <span key={use} className="text-xs px-3 py-1.5 border border-white/30 text-white/80 hover:border-[#CB521E] hover:text-white transition-colors">{use}</span>
+              ))}
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ── MARKET OVERVIEW ── */}
       <section id="market" className="py-24 bg-white">
         <div className="container">
           <SectionReveal>
             <div className="flex items-center gap-4 mb-4">
               <div className="section-accent-bar" />
-              <span className="text-xs tracking-[0.2em] uppercase text-[#4A6741] font-bold">Market Analysis</span>
+              <span className="text-xs tracking-[0.2em] uppercase text-[#4A6741] font-bold">Market Overview</span>
             </div>
             <h2 className="mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 600, color: "#2C2C2C" }}>
-              Glynn County: A Market in Motion
+              Glynn County — A Market in Motion
             </h2>
             <p className="text-[#2C2C2C]/70 max-w-2xl mb-16 text-base leading-relaxed">
-              Brunswick and Glynn County are experiencing a period of sustained economic expansion driven by port-related industrial growth, tourism, healthcare expansion, and a significant housing supply deficit.
+              Brunswick and Glynn County are experiencing a period of sustained growth driven by port expansion, tourism, healthcare, and in-migration from higher-cost coastal markets.
             </p>
           </SectionReveal>
 
-          {/* Key economic stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {[
-              { value: 5780, suffix: "M", prefix: "$", label: "Glynn County GDP (2023)", sub: "9.5% nominal growth" },
-              { value: 9545, suffix: "", prefix: "", label: "Housing Units Needed", sub: "7th highest shortage in GA" },
-              { value: 477, suffix: "", prefix: "+", label: "New Businesses (2021–24)", sub: "2,803 → 3,280 establishments" },
-              { value: 100, suffix: "M+", prefix: "$", label: "New Investment at Exit 42", sub: "2024–2025 alone" },
+              { value: 120000, suffix: "+", label: "Glynn County Population", sub: "2024 estimate — growing annually" },
+              { value: 9545, suffix: "", label: "Housing Units Needed", sub: "7th highest shortage in Georgia (GPPF, 2025)" },
+              { value: 20, suffix: "%", label: "Median HH Income Growth", sub: "2020–2023, Glynn County" },
+              { value: 100, suffix: "M+", prefix: "$", label: "New Capital Investment", sub: "Exit 42 corridor, 2024–2025 alone" },
             ].map(({ value, suffix, prefix, label, sub }) => (
               <SectionReveal key={label}>
                 <div className="stat-card p-6 h-full">
@@ -509,7 +519,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Two-column: Growth story + Image */}
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
             <SectionReveal>
               <div>
@@ -554,7 +563,6 @@ export default function Home() {
             </SectionReveal>
           </div>
 
-          {/* Housing shortage callout */}
           <SectionReveal>
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="relative overflow-hidden" style={{ minHeight: "320px" }}>
@@ -595,139 +603,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── DEVELOPMENT CONCEPT ── */}
-      <section className="relative py-0 overflow-hidden" style={{ minHeight: "500px" }}>
-        <img src={CONCEPT_IMAGE} alt="Development concept rendering for 144 Scranton Connector" className="w-full object-cover" style={{ height: "500px" }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-        <div className="absolute inset-0 flex items-center container">
-          <SectionReveal className="max-w-xl">
-            <div className="text-[#CB521E] text-xs tracking-widest uppercase font-bold mb-4">Development Potential</div>
-            <h2 className="text-white mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 300 }}>
-              Imagine What's<br /><span style={{ fontWeight: 700 }}>Possible Here</span>
-            </h2>
-            <p className="text-white/70 text-sm leading-relaxed mb-6">
-              A 10-acre site with arterial frontage, full utilities, and by-right density for 120–136 residential units — or the canvas for a medical campus, senior living community, or mixed-use development following rezoning.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["Multifamily Community", "Senior Living", "Medical Campus", "Charter School", "Mixed-Use PD", "Church Campus"].map(use => (
-                <span key={use} className="text-xs px-3 py-1.5 border border-white/30 text-white/80 hover:border-[#CB521E] hover:text-white transition-colors">{use}</span>
-              ))}
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* ── BUYER TARGETS ── */}
-      <section id="buyers" className="py-24 bg-white">
-        <div className="container">
-          <SectionReveal>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="section-accent-bar" />
-              <span className="text-xs tracking-[0.2em] uppercase text-[#4A6741] font-bold">Target Buyer Analysis</span>
-            </div>
-            <h2 className="mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 600, color: "#2C2C2C" }}>
-              Who Should Own This Property?
-            </h2>
-            <p className="text-[#2C2C2C]/70 max-w-2xl mb-16 text-base leading-relaxed">
-              A dual-track marketing strategy — simultaneously targeting residential developers under current zoning while pursuing rezoning discussions with commercial, medical, and government buyers — maximizes competitive tension and achieves the highest possible sale price.
-            </p>
-          </SectionReveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                tier: "Tier 1",
-                icon: Building2,
-                title: "Multifamily Developer",
-                subtitle: "Workforce / Market Rate",
-                range: "$2.4M – $3.8M",
-                color: "#CB521E",
-                why: "By-right MR zoning permits 120–136 units immediately. Documented 9,545-unit housing shortage creates strong demand fundamentals.",
-                targets: ["Regional multifamily developers", "LIHTC syndicators", "Build-to-rent operators"],
-              },
-              {
-                tier: "Tier 1",
-                icon: Activity,
-                title: "Medical / Healthcare",
-                subtitle: "Health System or REIT",
-                range: "$4.5M – $8.0M",
-                color: "#CB521E",
-                why: "10-acre site on arterial with full utilities is ideal for medical office park, outpatient surgery center, or specialty clinic campus.",
-                targets: ["SE Georgia Health System", "HCA / Tenet Healthcare", "Healthcare REITs"],
-              },
-              {
-                tier: "Tier 2",
-                icon: Landmark,
-                title: "Charter / Private School",
-                subtitle: "K-12 Education",
-                range: "$2.5M – $4.5M",
-                color: "#4A6741",
-                why: "Existing gymnasium, pool, and athletic fields reduce construction cost. Large site in residential neighborhood context.",
-                targets: ["KIPP, Academica, Charter Schools USA", "Local private school boards"],
-              },
-              {
-                tier: "Tier 2",
-                icon: Users,
-                title: "Senior Living Developer",
-                subtitle: "Assisted / Independent Living",
-                range: "$3.0M – $5.5M",
-                color: "#4A6741",
-                why: "Group dwellings permitted by right in MR district. Senior living is one of the most active development categories in coastal Georgia.",
-                targets: ["Sunrise, Brookdale, Atria", "Regional senior living developers"],
-              },
-              {
-                tier: "Tier 2",
-                icon: HomeIcon,
-                title: "Church / Religious Inst.",
-                subtitle: "Multi-Campus Organization",
-                range: "$2.0M – $3.5M",
-                color: "#4A6741",
-                why: "Existing gymnasium, fellowship spaces, and outdoor areas are directly compatible. Conditional use approval routinely granted on arterials.",
-                targets: ["Large regional churches", "Multi-campus megachurch networks"],
-              },
-              {
-                tier: "Tier 3",
-                icon: MapPin,
-                title: "Government / Institutional",
-                subtitle: "County, City, or State Agency",
-                range: "$2.5M – $4.5M",
-                color: "#C9A84C",
-                why: "Government entities are motivated buyers when large institutional sites become available. Potential uses: community center, public health clinic, government campus.",
-                targets: ["Glynn County BOC", "City of Brunswick", "State agencies (DCA, GEFA)"],
-              },
-            ].map(({ tier, icon: Icon, title, subtitle, range, color, why, targets }) => (
-              <SectionReveal key={title}>
-                <div className="border border-[#E8E0D0] p-6 h-full hover:shadow-lg transition-shadow bg-white group">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <span className="text-xs tracking-widest uppercase font-bold" style={{ color }}>{tier}</span>
-                      <h3 className="font-bold text-[#2C2C2C] mt-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem" }}>{title}</h3>
-                      <div className="text-xs text-[#2C2C2C]/50 mt-0.5">{subtitle}</div>
-                    </div>
-                    <div className="p-2 rounded-none" style={{ background: `${color}15` }}>
-                      <Icon size={20} style={{ color }} />
-                    </div>
-                  </div>
-                  <div className="text-xl font-bold mb-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", color }}>
-                    {range}
-                  </div>
-                  <p className="text-xs text-[#2C2C2C]/70 leading-relaxed mb-4">{why}</p>
-                  <div className="border-t border-[#E8E0D0] pt-3">
-                    <div className="text-xs text-[#2C2C2C]/40 uppercase tracking-wide mb-2">Target Contacts</div>
-                    {targets.map(t => (
-                      <div key={t} className="text-xs text-[#2C2C2C]/60 flex items-center gap-1.5 mb-1">
-                        <div className="w-1 h-1 rounded-full bg-[#4A6741]" />
-                        {t}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── MAP / LOCATION ── */}
       <section id="map" className="py-24 section-warm-stone">
         <div className="container">
@@ -755,7 +630,6 @@ export default function Home() {
                       map.setZoom(14);
                       map.setMapTypeId("hybrid");
 
-                      // Main property marker
                       const marker = new google.maps.Marker({
                         position: center,
                         map,
@@ -781,7 +655,6 @@ export default function Home() {
                       marker.addListener("click", () => infoWindow.open(map, marker));
                       infoWindow.open(map, marker);
 
-                      // Nearby POIs
                       const pois = [
                         { lat: 31.2490, lng: -81.4920, label: "Exit 42 / Buc-ee's", color: "#4A6741" },
                         { lat: 31.1500, lng: -81.4900, label: "Downtown Brunswick", color: "#4A6741" },
@@ -846,7 +719,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── HISTORY / YMCA STORY ── */}
+      {/* ── PROPERTY HISTORY ── */}
       <section className="py-24 bg-white">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -861,10 +734,10 @@ export default function Home() {
                   <span style={{ fontWeight: 300, fontStyle: "italic" }}>A New Chapter Begins.</span>
                 </h2>
                 <p className="text-[#2C2C2C]/70 text-sm leading-relaxed mb-4">
-                  The Golden Isles YMCA has served the Brunswick community for decades from this Scranton Connector location, providing fitness, aquatics, youth programming, and community gathering space to generations of Glynn County residents. The facility's gymnasium, indoor and outdoor pools, and athletic fields have been central to the community's recreational life.
+                  The Golden Isles YMCA has served the Brunswick community for decades from this Scranton Connector location, providing fitness, aquatics, youth programming, and community gathering space to generations of Glynn County residents.
                 </p>
                 <p className="text-[#2C2C2C]/70 text-sm leading-relaxed mb-4">
-                  The YMCA of Coastal Georgia has made the strategic decision to close this location and invest in a new, modern facility better suited to contemporary programming needs. The organization publicly acknowledged the need for a replacement facility and has been engaged in fundraising for a new location. This transition — driven by the organization's forward momentum, not financial distress — creates a rare market opportunity.
+                  The YMCA of Coastal Georgia has made the strategic decision to close this location and invest in a new, modern facility better suited to contemporary programming needs. This transition — driven by the organization's forward momentum, not financial distress — creates a rare market opportunity.
                 </p>
                 <p className="text-[#2C2C2C]/70 text-sm leading-relaxed">
                   The property was last sold in December 2011 for $698,112. Today, with the growth of the Glynn County market, the documented housing shortage, and the corridor's public infrastructure investment, the site commands a substantially higher value as a redevelopment opportunity.
@@ -884,234 +757,17 @@ export default function Home() {
                   {[
                     { label: "Year Built", value: "1970s–90s" },
                     { label: "Site Area", value: "10.0 Acres" },
-                    { label: "Assessed (2025)", value: "$982,400" },
+                    { label: "Last Sale", value: "$698K (2011)" },
                   ].map(({ label, value }) => (
-                    <div key={label} className="bg-[#F8F5F0] p-4 text-center border border-[#E8E0D0]">
-                      <div className="text-lg font-bold text-[#CB521E]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem" }}>{value}</div>
-                      <div className="text-xs text-[#2C2C2C]/50 mt-1 uppercase tracking-wide">{label}</div>
+                    <div key={label} className="text-center p-4 bg-[#F8F5F0] border border-[#E8E0D0]">
+                      <div className="text-[#CB521E] font-bold mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem" }}>{value}</div>
+                      <div className="text-xs text-[#2C2C2C]/50 uppercase tracking-wide">{label}</div>
                     </div>
                   ))}
                 </div>
               </div>
             </SectionReveal>
           </div>
-        </div>
-      </section>
-
-      {/* ── MARKETING STRATEGY ── */}
-      <section className="py-24 section-dark">
-        <div className="container">
-          <SectionReveal>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="h-px w-12 bg-[#CB521E]" />
-              <span className="text-xs tracking-[0.2em] uppercase text-[#CB521E] font-bold">Marketing Strategy</span>
-            </div>
-            <h2 className="mb-4 text-white" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 600 }}>
-              A Structured Process to Maximize Value
-            </h2>
-            <p className="text-white/60 max-w-2xl mb-16 text-base leading-relaxed">
-              PIER Commercial Real Estate recommends a competitive bid process — not a private, off-market transaction — to maximize competitive tension and achieve the highest possible sale price.
-            </p>
-          </SectionReveal>
-
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                phase: "Phase 1",
-                title: "Pre-Marketing",
-                timeline: "Months 1–2",
-                items: [
-                  "Engage Glynn County planning staff — pre-application rezoning meeting",
-                  "Commission Phase I Environmental Site Assessment",
-                  "Commission boundary survey / ALTA",
-                  "Prepare professional offering memorandum",
-                  "Launch offering website",
-                ],
-              },
-              {
-                phase: "Phase 2",
-                title: "Broad Market Outreach",
-                timeline: "Months 2–3",
-                items: [
-                  "Direct outreach to Tier 1 & 2 buyers",
-                  "LoopNet and CoStar premium listing",
-                  "CCIM network outreach — GA & Southeast chapters",
-                  "Direct mail to SE multifamily / medical / institutional developers",
-                  "Press release to Brunswick News, Georgia Trend",
-                ],
-              },
-              {
-                phase: "Phase 3",
-                title: "Call for Offers & Close",
-                timeline: "Months 4–8",
-                items: [
-                  "Formal offer deadline — creates urgency",
-                  "Evaluate all offers on net-to-seller basis",
-                  "Negotiate with top 2–3 bidders simultaneously",
-                  "Execute PSA with 60–90 day due diligence",
-                  "Close transaction",
-                ],
-              },
-            ].map(({ phase, title, timeline, items }) => (
-              <SectionReveal key={phase}>
-                <div className="bg-white/5 border border-white/10 p-6 h-full">
-                  <div className="text-[#CB521E] text-xs tracking-widest uppercase font-bold mb-1">{phase}</div>
-                  <h3 className="text-white font-bold mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem" }}>{title}</h3>
-                  <div className="text-white/40 text-xs mb-5">{timeline}</div>
-                  <ul className="space-y-2">
-                    {items.map(item => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-white/60">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#CB521E] mt-1.5 shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-
-          <SectionReveal>
-            <div className="bg-[#CB521E] p-8 flex flex-col md:flex-row gap-6 items-center justify-between">
-              <div>
-                <div className="text-white font-bold text-xl mb-2" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.8rem" }}>
-                  Download the Full Offering Memorandum
-                </div>
-                <p className="text-white/80 text-sm">
-                  Complete property analysis, zoning data, market research, buyer targeting strategy, and financial estimates — prepared by PIER Commercial Real Estate.
-                </p>
-              </div>
-              <a
-                href={PDF_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shrink-0 bg-white text-[#CB521E] font-bold text-xs tracking-widest uppercase px-8 py-4 flex items-center gap-2 hover:bg-[#F8F5F0] transition-colors"
-              >
-                <Download size={16} />
-                Download PDF
-              </a>
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* ── LISTING AGREEMENT ── */}
-      <section id="listing-agreement" className="py-24 bg-[#F7F5F2]">
-        <div className="container">
-          <SectionReveal>
-            <div className="flex items-center gap-4 mb-3">
-              <div className="w-8 h-px bg-[#CB521E]" />
-              <span className="text-[#CB521E] text-xs tracking-[0.25em] uppercase font-bold">Exclusive Listing Agreement</span>
-            </div>
-            <h2 className="mb-6" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 600, color: "#1a1a1a", lineHeight: 1.1 }}>
-              Proposed Listing Terms
-            </h2>
-            <p className="text-[#4a4a4a] text-base leading-relaxed mb-10 max-w-3xl" style={{ fontFamily: "'Lato', sans-serif" }}>
-              PIER Commercial Real Estate proposes to serve as the sole and exclusive listing broker for the sale of 144 Scranton Connector, Brunswick, Georgia. The following summarizes the key terms of the proposed Exclusive Listing Agreement. A pre-filled draft of the full agreement is available for download below.
-            </p>
-          </SectionReveal>
-
-          {/* Key Terms Table */}
-          <SectionReveal>
-            <div className="grid md:grid-cols-2 gap-0 mb-12 border border-[#e0dbd4] overflow-hidden">
-              {[
-                { term: "Listing Broker", value: "PIER Commercial Real Estate" },
-                { term: "Lead Broker", value: "Ryan T. Schneider, CCIM" },
-                { term: "Broker License", value: "Georgia Broker Office H-64838" },
-                { term: "Agent License", value: "Georgia License #157331" },
-                { term: "Property", value: "144 Scranton Connector, Brunswick, GA 31525" },
-                { term: "Tax Parcel", value: "Glynn County PARID: 03-10768" },
-                { term: "Listing Commission", value: "6.00% of Gross Sales Price" },
-                { term: "Co-Brokerage", value: "Buyer's broker commission per separate agreement" },
-                { term: "Agency", value: "Seller Representation Only (BRRETA)" },
-                { term: "Governing Law", value: "State of Georgia" },
-                { term: "Listing Price", value: "To be determined by Owner" },
-                { term: "Listing Term", value: "To be determined — auto-extends 30 days (max 2x)" },
-                { term: "Protection Period", value: "180 days post-termination" },
-                { term: "Marketing Authority", value: "Signage, broker outreach, digital platforms, site tours" },
-              ].map(({ term, value }, i) => (
-                <div key={i} className={`flex border-b border-[#e0dbd4] ${ i % 2 === 0 ? "border-r border-[#e0dbd4]" : "" }`}>
-                  <div className="w-44 flex-shrink-0 bg-[#1a1a1a] text-white px-4 py-3 text-xs tracking-widest uppercase font-bold" style={{ fontFamily: "'Lato', sans-serif" }}>{term}</div>
-                  <div className="flex-1 bg-white px-4 py-3 text-sm text-[#2c2c2c]" style={{ fontFamily: "'Lato', sans-serif" }}>{value}</div>
-                </div>
-              ))}
-            </div>
-          </SectionReveal>
-
-          {/* Commission Breakdown */}
-          <SectionReveal>
-            <div className="bg-[#1a1a1a] text-white p-8 mb-10">
-              <div className="text-xs tracking-widest uppercase font-bold mb-4 text-[#CB521E]" style={{ fontFamily: "'Lato', sans-serif" }}>Commission Structure</div>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="border-l-2 border-[#CB521E] pl-4">
-                  <div className="text-2xl font-bold mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem" }}>6.00%</div>
-                  <div className="text-white/60 text-xs tracking-widest uppercase">Total Commission</div>
-                  <div className="text-white/50 text-xs mt-1">of gross sales price, paid by Seller at closing</div>
-                </div>
-                <div className="border-l-2 border-white/20 pl-4">
-                  <div className="text-2xl font-bold mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem" }}>Shared</div>
-                  <div className="text-white/60 text-xs tracking-widest uppercase">Co-Brokerage</div>
-                  <div className="text-white/50 text-xs mt-1">Buyer's broker compensation per separate written agreement</div>
-                </div>
-                <div className="border-l-2 border-white/20 pl-4">
-                  <div className="text-2xl font-bold mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem" }}>180 Days</div>
-                  <div className="text-white/60 text-xs tracking-widest uppercase">Protection Period</div>
-                  <div className="text-white/50 text-xs mt-1">Post-termination protection for all prospects introduced during the term</div>
-                </div>
-              </div>
-            </div>
-          </SectionReveal>
-
-          {/* Key Provisions */}
-          <SectionReveal>
-            <div className="mb-10">
-              <div className="text-xs tracking-widest uppercase font-bold mb-4 text-[#CB521E]" style={{ fontFamily: "'Lato', sans-serif" }}>Key Agreement Provisions</div>
-              <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  { heading: "Sole Exclusive Right to Sell", body: "PIER is appointed as Owner's sole and exclusive limited agent with the exclusive right to offer the Property for sale or exchange during the term, regardless of the source of the buyer." },
-                  { heading: "Seller Representation (BRRETA)", body: "PIER represents the Seller only. All agency disclosures are made in accordance with Georgia's Brokerage Relationships in Real Estate Transactions Act (O.C.G.A. § 10-6A-1)." },
-                  { heading: "Marketing Authority", body: "Broker is authorized to place signage, conduct broker outreach, list on digital platforms, and show the Property to qualified prospects at reasonable times." },
-                  { heading: "Commission Trigger Events", body: "Commission is earned upon: (A) procuring a ready, willing, and able buyer; (B) Owner entering an enforceable contract; (C) contribution to a business entity; or (D) transfer of an ownership interest in Owner entity." },
-                  { heading: "Owner's Representations", body: "Owner warrants fee simple title, no pending litigation or condemnation, no foreclosure actions, no governmental violation notices, and no known material latent defects beyond those disclosed in writing." },
-                  { heading: "Non-Discrimination", body: "The Property shall be offered, shown, and made available to all persons on a non-discriminatory basis without regard to race, color, religion, sex, handicap, familial status, or national origin." },
-                ].map(({ heading, body }, i) => (
-                  <div key={i} className="bg-white border border-[#e0dbd4] p-5">
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#CB521E] mt-1.5 flex-shrink-0" />
-                      <div>
-                        <div className="font-bold text-sm text-[#1a1a1a] mb-1" style={{ fontFamily: "'Lato', sans-serif" }}>{heading}</div>
-                        <div className="text-xs text-[#4a4a4a] leading-relaxed" style={{ fontFamily: "'Lato', sans-serif" }}>{body}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </SectionReveal>
-
-          {/* Download CTA */}
-          <SectionReveal>
-            <div className="bg-white border border-[#e0dbd4] p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div>
-                <div className="text-xs tracking-widest uppercase font-bold mb-2 text-[#CB521E]" style={{ fontFamily: "'Lato', sans-serif" }}>Pre-Filled Draft Agreement</div>
-                <div className="text-lg font-semibold text-[#1a1a1a] mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem" }}>Exclusive Listing Agreement — PIER Commercial Real Estate</div>
-                <div className="text-sm text-[#4a4a4a]" style={{ fontFamily: "'Lato', sans-serif" }}>All known broker details pre-filled. Listing price, term dates, and Owner signatures remain for YMCA completion.</div>
-              </div>
-              <a
-                href="https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/YMCA_Listing_Agreement_PIER_Prefilled_9e7eb0a0.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-shrink-0 flex items-center gap-2 bg-[#CB521E] text-white px-6 py-3 text-xs font-bold tracking-widest uppercase hover:bg-[#b44518] transition-colors"
-                style={{ fontFamily: "'Lato', sans-serif" }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download Draft Agreement
-              </a>
-            </div>
-            <p className="text-xs text-[#8a8a8a] mt-4" style={{ fontFamily: "'Lato', sans-serif" }}>
-              This draft is provided for review purposes only and does not constitute a binding agreement until fully executed by both parties. PIER Commercial Real Estate recommends that Owner review the agreement with legal counsel prior to execution.
-            </p>
-          </SectionReveal>
         </div>
       </section>
 
@@ -1129,7 +785,7 @@ export default function Home() {
                   Request Information
                 </h2>
                 <p className="text-[#2C2C2C]/70 text-sm leading-relaxed mb-10">
-                  This offering is presented exclusively by PIER Commercial Real Estate. To request the full offering memorandum, schedule a site tour, or submit an offer, contact Ryan T. Schneider, CCIM directly.
+                  This offering is presented exclusively by PIER Commercial Real Estate. To receive pricing, request the full offering memorandum, schedule a site tour, or submit an offer, contact Ryan T. Schneider, CCIM directly.
                 </p>
 
                 <div className="space-y-5">
@@ -1165,69 +821,82 @@ export default function Home() {
                 </div>
 
                 <div className="mt-10 p-6 bg-[#F8F5F0] border-l-4 border-[#4A6741]">
-                  <div className="font-bold text-[#2C2C2C] mb-1" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem" }}>Ryan T. Schneider, CCIM</div>
-                  <div className="text-sm text-[#2C2C2C]/60 mb-3">President | PIER Commercial Real Estate</div>
-                  <p className="text-xs text-[#2C2C2C]/60 leading-relaxed">
-                    PIER Commercial Real Estate covers the Coastal Georgia and Lowcountry SC trade area, specializing in commercial brokerage and property management across retail, office, industrial, medical, land, and investment properties.
-                  </p>
+                  <div className="text-xs tracking-widest uppercase font-bold text-[#4A6741] mb-2">Exclusive Listing Broker</div>
+                  <div className="font-bold text-[#2C2C2C]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem" }}>Ryan T. Schneider, CCIM</div>
+                  <div className="text-sm text-[#2C2C2C]/60 mt-1">President, PIER Commercial Real Estate</div>
+                  <div className="text-xs text-[#2C2C2C]/40 mt-1">GA Broker Office H-64838 · License #157331</div>
+                </div>
+
+                <div className="mt-6">
+                  <a
+                    href={PDF_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm font-bold text-[#CB521E] hover:text-[#b44518] transition-colors"
+                  >
+                    <FileText size={16} />
+                    Download Full Offering Memorandum (PDF)
+                  </a>
                 </div>
               </div>
             </SectionReveal>
 
             <SectionReveal>
-              {formSubmitted ? (
-                <div className="flex flex-col items-center justify-center h-full py-16 text-center">
-                  <div className="w-16 h-16 bg-[#4A6741] flex items-center justify-center mb-6">
-                    <Mail size={28} className="text-white" />
+              <div className="bg-[#F8F5F0] p-8">
+                <h3 className="mb-6" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.6rem", fontWeight: 600, color: "#2C2C2C" }}>
+                  Send an Inquiry
+                </h3>
+                {formSubmitted ? (
+                  <div className="text-center py-12">
+                    <div className="w-16 h-16 bg-[#4A6741] rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h4 className="text-[#2C2C2C] font-bold mb-2" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem" }}>Inquiry Received</h4>
+                    <p className="text-[#2C2C2C]/60 text-sm">Ryan Schneider will be in touch within one business day.</p>
                   </div>
-                  <h3 className="font-bold text-[#2C2C2C] mb-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.8rem" }}>
-                    Thank You
-                  </h3>
-                  <p className="text-[#2C2C2C]/60 text-sm max-w-sm">
-                    Your inquiry has been received. Ryan Schneider will be in touch within one business day.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleFormSubmit} className="space-y-4">
-                  <h3 className="font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem" }}>
-                    Inquire About This Property
-                  </h3>
-                  {[
-                    { id: "name", label: "Full Name", type: "text", required: true },
-                    { id: "company", label: "Company / Organization", type: "text", required: false },
-                    { id: "email", label: "Email Address", type: "email", required: true },
-                    { id: "phone", label: "Phone Number", type: "tel", required: false },
-                  ].map(({ id, label, type, required }) => (
-                    <div key={id}>
-                      <label className="text-xs font-bold text-[#2C2C2C]/60 uppercase tracking-wide block mb-1.5">{label}{required && " *"}</label>
-                      <input
-                        type={type}
-                        required={required}
-                        value={formData[id as keyof typeof formData]}
-                        onChange={e => setFormData(prev => ({ ...prev, [id]: e.target.value }))}
-                        className="w-full border border-[#E8E0D0] px-4 py-3 text-sm text-[#2C2C2C] bg-white focus:outline-none focus:border-[#CB521E] transition-colors rounded-none"
+                ) : (
+                  <form onSubmit={handleFormSubmit} className="space-y-4">
+                    {[
+                      { id: "name", label: "Full Name *", type: "text", required: true },
+                      { id: "company", label: "Company / Organization", type: "text", required: false },
+                      { id: "email", label: "Email Address *", type: "email", required: true },
+                      { id: "phone", label: "Phone Number", type: "tel", required: false },
+                    ].map(({ id, label, type, required }) => (
+                      <div key={id}>
+                        <label className="block text-xs font-bold tracking-widest uppercase text-[#2C2C2C]/60 mb-1">{label}</label>
+                        <input
+                          type={type}
+                          required={required}
+                          value={formData[id as keyof typeof formData]}
+                          onChange={e => setFormData(prev => ({ ...prev, [id]: e.target.value }))}
+                          className="w-full px-4 py-3 border border-[#E8E0D0] bg-white text-[#2C2C2C] text-sm focus:outline-none focus:border-[#CB521E] transition-colors"
+                        />
+                      </div>
+                    ))}
+                    <div>
+                      <label className="block text-xs font-bold tracking-widest uppercase text-[#2C2C2C]/60 mb-1">Message / Interest</label>
+                      <textarea
+                        rows={4}
+                        value={formData.message}
+                        onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                        placeholder="Tell us about your interest in this property, intended use, timeline, and any questions."
+                        className="w-full px-4 py-3 border border-[#E8E0D0] bg-white text-[#2C2C2C] text-sm focus:outline-none focus:border-[#CB521E] transition-colors resize-none"
                       />
                     </div>
-                  ))}
-                  <div>
-                    <label className="text-xs font-bold text-[#2C2C2C]/60 uppercase tracking-wide block mb-1.5">Message / Interest</label>
-                    <textarea
-                      rows={4}
-                      value={formData.message}
-                      onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                      placeholder="Please describe your interest in the property and intended use..."
-                      className="w-full border border-[#E8E0D0] px-4 py-3 text-sm text-[#2C2C2C] bg-white focus:outline-none focus:border-[#CB521E] transition-colors rounded-none resize-none"
-                    />
-                  </div>
-                  <button type="submit" className="btn-pier w-full rounded-none justify-center flex items-center gap-2">
-                    <Mail size={15} />
-                    Submit Inquiry
-                  </button>
-                  <p className="text-xs text-[#2C2C2C]/40 text-center">
-                    Your information is confidential and will only be used to respond to your inquiry.
-                  </p>
-                </form>
-              )}
+                    <button
+                      type="submit"
+                      className="w-full btn-pier rounded-none py-4 text-sm font-bold tracking-widest uppercase"
+                    >
+                      Submit Inquiry
+                    </button>
+                    <p className="text-xs text-[#2C2C2C]/40 text-center">
+                      Your information is kept strictly confidential.
+                    </p>
+                  </form>
+                )}
+              </div>
             </SectionReveal>
           </div>
         </div>
