@@ -86,8 +86,8 @@ declare global {
   }
 }
 
-// Google Maps API key — set VITE_GOOGLE_MAPS_API_KEY in your .env or hosting provider env vars
-const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+// Google Maps API key
+const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "AIzaSyBfL7wHBMga2-WJYrDCj9pxGHLNNL030Wk";
 const MAPS_API_BASE = "https://maps.googleapis.com";
 
 // Singleton promise so the script is only ever injected once per page load
