@@ -1,0 +1,7 @@
+# Vercel deployment trigger
+
+This marker exists only to trigger production deployment after connecting the existing repository to the pier-offering-host Vercel project.
+
+Public-site change included in this deployment: former confidential-document download actions are replaced by the Request Offering Information inquiry flow.
+
+Triggered: 2026-08-27
