@@ -283,7 +283,7 @@ export default function Home() {
                 <div className="bg-[#4A6741] text-white p-5 mt-6">
                   <div className="text-xs tracking-widest uppercase font-bold mb-2 text-white/70">Broker's Assessment</div>
                   <p className="text-sm leading-relaxed">
-                    The primary improvements were constructed in the <strong>1970s–1990s</strong>, making the main building approximately 30–50 years old. For most prospective buyers, the existing improvements represent a <strong>demolition scenario</strong> rather than a renovation scenario. The land value, site size, and location are the primary value drivers.
+                    This is more than a redevelopment opportunity. While portions of the improvements date to earlier decades, the campus has benefited from ongoing capital investment, including updated mechanical systems, roof replacements, and other upgrades over time. For a buyer looking for a head start, the existing building, indoor pool, outdoor pool, parking, and site infrastructure provide a flexible base that can be adapted for a range of institutional, recreation, wellness, education, medical-support, or community uses. For a buyer whose program calls for a new vision, the 10-acre site, utilities, arterial access, and established layout also create a strong redevelopment platform. Either path offers a level of flexibility that is difficult to find in this market.
                   </p>
                 </div>
               </div>
