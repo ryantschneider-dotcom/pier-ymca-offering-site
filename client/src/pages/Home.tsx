@@ -12,7 +12,7 @@
  */
 
 import { useState, useEffect, useRef } from "react";
-import { MapPin, Building2, FileText, Phone, Mail, Globe, ChevronDown, Download, ExternalLink, Activity, Home as HomeIcon } from "lucide-react";
+import { MapPin, Building2, Phone, Mail, Globe, ChevronDown, ExternalLink, Activity, Home as HomeIcon } from "lucide-react";
 import { MapView } from "@/components/Map";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_sitemap_cropped_54e1829f.jpg";
@@ -20,7 +20,6 @@ const SITE_MAP_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891
 const BRUNSWICK_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_brunswick_skyline-N9XUvfWWRMUjvnnYG6nm66.webp";
 const MARSH_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_coastal_georgia_marsh-X6dYofBJpMKPXANMjhUTHH.webp";
 const CONCEPT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_development_concept-QT2yhbA9b2MDhSebaUEamJ.webp";
-const PDF_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/YMCA_144_Scranton_Connector_Disposition_Analysis_PIER_2026_742c9756.pdf";
 const PIER_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/Brokeragetransp_476781a6.png";
 
 function useIntersectionObserver(threshold = 0.15) {
@@ -129,15 +128,13 @@ export default function Home() {
               </button>
             ))}
           </div>
-          <a
-            href={PDF_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => scrollTo("contact")}
             className="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest text-white px-5 py-2.5 border border-white/40 hover:bg-white/10 transition-all"
             style={{ fontFamily: "'Lato', sans-serif" }}
           >
-            <Download size={13} /> DOWNLOAD OM
-          </a>
+            <Mail size={13} /> REQUEST OFFERING INFORMATION
+          </button>
         </div>
       </nav>
 
@@ -193,10 +190,10 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap gap-4 fade-up fade-up-delay-4">
-              <a href={PDF_URL} target="_blank" rel="noopener noreferrer" className="btn-pier rounded-none flex items-center gap-2">
-                <Download size={15} />
-                Download Offering Memorandum
-              </a>
+              <button onClick={() => scrollTo("contact")} className="btn-pier rounded-none flex items-center gap-2">
+                <Mail size={15} />
+                Request Offering Information
+              </button>
               <button onClick={() => scrollTo("contact")} className="btn-sage rounded-none flex items-center gap-2">
                 <Mail size={15} />
                 Request Information
@@ -785,7 +782,7 @@ export default function Home() {
                   Request Information
                 </h2>
                 <p className="text-[#2C2C2C]/70 text-sm leading-relaxed mb-10">
-                  This offering is presented exclusively by PIER Commercial Real Estate. To receive pricing, request the full offering memorandum, schedule a site tour, or submit an offer, contact Ryan T. Schneider, CCIM directly.
+                  This offering is presented exclusively by PIER Commercial Real Estate. To receive pricing, request property information, schedule a site tour, or submit an offer, contact Ryan T. Schneider, CCIM directly.
                 </p>
 
                 <div className="space-y-5">
@@ -827,16 +824,14 @@ export default function Home() {
                   <div className="text-xs text-[#2C2C2C]/40 mt-1">GA Broker Office H-64838 · License #157331</div>
                 </div>
 
-                <div className="mt-6">
-                  <a
-                    href={PDF_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <div className="mt-6 border-t border-[#E8E0D0] pt-5">
+                  <button
+                    onClick={() => scrollTo("contact")}
                     className="flex items-center gap-2 text-sm font-bold text-[#CB521E] hover:text-[#b44518] transition-colors"
                   >
-                    <FileText size={16} />
-                    Download Full Offering Memorandum (PDF)
-                  </a>
+                    <Mail size={16} />
+                    Request Offering Information
+                  </button>
                 </div>
               </div>
             </SectionReveal>
@@ -940,13 +935,13 @@ export default function Home() {
             <p className="text-white/30 text-xs">
               © 2026 PIER Commercial Real Estate. All rights reserved. This offering is subject to prior sale, change, or withdrawal without notice.
             </p>
-            <a href={PDF_URL} target="_blank" rel="noopener noreferrer" className="text-xs text-white/40 hover:text-[#CB521E] transition-colors flex items-center gap-1.5">
-              <FileText size={12} />
-              Download Offering Memorandum
-            </a>
+            <button onClick={() => scrollTo("contact")} className="text-xs text-white/40 hover:text-[#CB521E] transition-colors flex items-center gap-1.5">
+              <Mail size={12} />
+              Request Offering Information
+            </button>
           </div>
           <p className="text-white/20 text-xs mt-4 text-center max-w-3xl mx-auto">
-            This offering memorandum is prepared for informational purposes only. It does not constitute a certified appraisal under USPAP standards. All value estimates are broker's opinions of value. Prospective purchasers should conduct their own due diligence.
+            This offering is prepared for informational purposes only and is subject to prior sale, change, or withdrawal without notice. Prospective purchasers should conduct their own independent due diligence.
           </p>
         </div>
       </footer>
