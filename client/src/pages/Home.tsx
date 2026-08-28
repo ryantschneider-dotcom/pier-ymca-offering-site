@@ -13,11 +13,11 @@
 
 import { useState, useEffect, useRef } from "react";
 import { MapPin, Building2, Phone, Mail, Globe, ChevronDown, ExternalLink, Activity, Home as HomeIcon } from "lucide-react";
-import { MapView } from "@/components/Map";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_sitemap_cropped_54e1829f.jpg";
 const SITE_MAP_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_actual_hero-1_0f2db3f7.jpg";
-const BRUNSWICK_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_brunswick_skyline-N9XUvfWWRMUjvnnYG6nm66.webp";
+const BRUNSWICK_IMAGE = "/images/sidney-lanier-bridge-wikimedia.jpg";
+const LOCATION_MAP_IMAGE = "/images/144-scranton-connector-location-map.jpg";
 const MARSH_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_coastal_georgia_marsh-X6dYofBJpMKPXANMjhUTHH.webp";
 const CONCEPT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/ymca_development_concept-QT2yhbA9b2MDhSebaUEamJ.webp";
 const PIER_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663387123891/cZJAjbkh8KR8FWhRaqDtLR/Brokeragetransp_476781a6.png";
@@ -551,10 +551,13 @@ export default function Home() {
                   className="w-full object-cover"
                   style={{ height: "420px" }}
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                   <div className="text-white text-sm font-light" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontStyle: "italic" }}>
                     Brunswick, Georgia &amp; the Golden Isles — Sidney Lanier Bridge
                   </div>
+                  <a href="https://commons.wikimedia.org/wiki/File:Sidney_Lanier_Bridge.jpg" target="_blank" rel="noreferrer" className="inline-block mt-1 text-[10px] text-white/70 hover:text-white transition-colors">
+                    Photo: Hyku, CC BY 2.0
+                  </a>
                 </div>
               </div>
             </SectionReveal>
@@ -619,69 +622,24 @@ export default function Home() {
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
               <SectionReveal>
-                <div className="w-full overflow-hidden border border-[#E8E0D0]" style={{ height: "480px" }}>
-                  <MapView
-                    onMapReady={(map: google.maps.Map) => {
-                      const center = { lat: 31.2194, lng: -81.4852 };
-                      map.setCenter(center);
-                      map.setZoom(14);
-                      map.setMapTypeId("hybrid");
-
-                      const marker = new google.maps.Marker({
-                        position: center,
-                        map,
-                        title: "144 Scranton Connector — YMCA Property",
-                        icon: {
-                          path: google.maps.SymbolPath.CIRCLE,
-                          scale: 14,
-                          fillColor: "#CB521E",
-                          fillOpacity: 1,
-                          strokeColor: "#ffffff",
-                          strokeWeight: 3,
-                        },
-                      });
-
-                      const infoWindow = new google.maps.InfoWindow({
-                        content: `<div style="font-family:'Lato',sans-serif;padding:8px;max-width:220px">
-                          <div style="font-weight:700;color:#CB521E;font-size:13px;margin-bottom:4px">144 Scranton Connector</div>
-                          <div style="font-size:12px;color:#555">Brunswick, GA 31525</div>
-                          <div style="font-size:11px;color:#888;margin-top:4px">±10 Acres | MR Zoning | PARID: 03-10768</div>
-                        </div>`,
-                      });
-
-                      marker.addListener("click", () => infoWindow.open(map, marker));
-                      infoWindow.open(map, marker);
-
-                      const pois = [
-                        { lat: 31.2490, lng: -81.4920, label: "Exit 42 / Buc-ee's", color: "#4A6741" },
-                        { lat: 31.1500, lng: -81.4900, label: "Downtown Brunswick", color: "#4A6741" },
-                        { lat: 31.2100, lng: -81.4600, label: "SE GA Health System", color: "#4A6741" },
-                        { lat: 31.1800, lng: -81.3900, label: "St. Simons Island", color: "#4A6741" },
-                      ];
-
-                      pois.forEach(poi => {
-                        new google.maps.Marker({
-                          position: { lat: poi.lat, lng: poi.lng },
-                          map,
-                          title: poi.label,
-                          icon: {
-                            path: google.maps.SymbolPath.CIRCLE,
-                            scale: 8,
-                            fillColor: poi.color,
-                            fillOpacity: 0.85,
-                            strokeColor: "#ffffff",
-                            strokeWeight: 2,
-                          },
-                          label: {
-                            text: poi.label,
-                            color: "#ffffff",
-                            fontSize: "10px",
-                            fontWeight: "bold",
-                          },
-                        });
-                      });
-                    }}
+                <div className="relative w-full overflow-hidden border border-[#E8E0D0] bg-white" style={{ height: "480px" }}>
+                  <img
+                    src={LOCATION_MAP_IMAGE}
+                    alt="Google Maps hybrid view of 144 Scranton Connector in Brunswick, Georgia, showing the property’s I-95 corridor context"
+                    className="w-full h-full object-cover"
                   />
+                  <a
+                    href="https://www.google.com/maps?q=31.21963,-81.48513"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-white/95 px-4 py-2 text-xs font-bold tracking-wide text-[#2C2C2C] shadow-sm hover:bg-white transition-colors"
+                  >
+                    <MapPin size={14} className="text-[#CB521E]" />
+                    View Property on Google Maps
+                  </a>
+                  <div className="absolute top-4 left-4 bg-[#CB521E] px-3 py-2 text-[11px] font-bold tracking-widest text-white uppercase shadow-sm">
+                    144 Scranton Connector
+                  </div>
                 </div>
               </SectionReveal>
             </div>
